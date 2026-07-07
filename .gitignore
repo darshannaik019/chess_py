@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+database/chess_stats.db
+database/*.db
+
+# Save slots & exports
+saves/
+saves/*.json
+saves/*.pgn
+
+# Local settings / configurations
+settings.json
+.env
+.env.local
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
