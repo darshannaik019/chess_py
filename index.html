@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chess Supreme - A production-quality desktop Chess Game built in Python with Pygame-ce, Stockfish integration, and sqlite metrics persistence.">
+    <title>Chess Supreme 👑 | Desktop Python Chess Game</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon (Fallback to Crown emoji as SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+
+    <!-- Stars background effect -->
+    <div class="stars"></div>
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+
+    <header class="header">
+        <div class="logo">
+            <span class="crown">👑</span> Chess Supreme
+        </div>
+        <nav class="nav">
+            <a href="#features">Features</a>
+            <a href="#demo">Preview</a>
+            <a href="#setup">Setup</a>
+            <a href="https://github.com/darshannaik019/chess_py.git" target="_blank" class="github-btn">
+                <svg class="github-icon" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                GitHub
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">Experience Chess in <span class="gradient-text">Pure Pygame</span></h1>
+            <p class="hero-subtitle">
+                A highly-polished, feature-rich desktop chess application written in Python 3.12+ featuring multithreaded AI engines, local persistence, Fischer clocks, and premium animations.
+            </p>
+            <div class="hero-buttons">
+                <a href="#setup" class="primary-btn">Get Started Now</a>
+                <a href="https://github.com/darshannaik019/chess_py.git" target="_blank" class="secondary-btn">View Source</a>
+            </div>
+        </section>
+
+        <!-- Dynamic Chess Board Preview Section -->
+        <section id="demo" class="demo-section">
+            <div class="demo-grid">
+                <!-- Visual Board Mockup using real assets -->
+                <div class="chess-board-card">
+                    <div class="glass-header">
+                        <div class="circle red"></div>
+                        <div class="circle yellow"></div>
+                        <div class="circle green"></div>
+                        <span class="window-title">Chess Supreme Engine Demo</span>
+                    </div>
+                    <div class="board-container">
+                        <div class="board-labels board-labels-top">
+                            <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+                        </div>
+                        <div class="board-grid">
+                            <!-- Draw chessboard with some pieces -->
+                            <!-- Row 8 -->
+                            <div class="square light"><img src="assets/images/bR.png" alt="bR" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/bN.png" alt="bN" class="piece"></div>
+                            <div class="square light"><img src="assets/images/bB.png" alt="bB" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/bQ.png" alt="bQ" class="piece"></div>
+                            <div class="square light"><img src="assets/images/bK.png" alt="bK" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/bB.png" alt="bB" class="piece"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"><img src="assets/images/bR.png" alt="bR" class="piece"></div>
+                            <!-- Row 7 -->
+                            <div class="square dark"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <div class="square light"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <div class="square light"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <div class="square light"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <!-- Row 6 -->
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"><img src="assets/images/bN.png" alt="bN" class="piece float-piece"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <!-- Row 5 -->
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"><img src="assets/images/bP.png" alt="bP" class="piece"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <!-- Row 4 -->
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <!-- Row 3 -->
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"><img src="assets/images/wN.png" alt="wN" class="piece float-piece"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"></div>
+                            <!-- Row 2 -->
+                            <div class="square light"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <div class="square light"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <div class="square dark"></div>
+                            <div class="square light"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <div class="square light"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/wP.png" alt="wP" class="piece"></div>
+                            <!-- Row 1 -->
+                            <div class="square dark"><img src="assets/images/wR.png" alt="wR" class="piece"></div>
+                            <div class="square light"></div>
+                            <div class="square dark"><img src="assets/images/wB.png" alt="wB" class="piece"></div>
+                            <div class="square light"><img src="assets/images/wQ.png" alt="wQ" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/wK.png" alt="wK" class="piece"></div>
+                            <div class="square light"><img src="assets/images/wB.png" alt="wB" class="piece"></div>
+                            <div class="square dark"><img src="assets/images/wN.png" alt="wN" class="piece"></div>
+                            <div class="square light"><img src="assets/images/wR.png" alt="wR" class="piece"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="demo-info">
+                    <h2>Modern, Responsive & Pure Python</h2>
+                    <p>Designed with professional UX concepts. Features custom sound synthesis, multiple local game save states, full board flips, and smooth piece transitions using <code>smoothstep</code> interpolation.</p>
+                    
+                    <div class="feature-pills">
+                        <span class="pill">Pygame-CE 2.5+</span>
+                        <span class="pill">SQLite 3</span>
+                        <span class="pill">Stockfish UCI</span>
+                        <span class="pill">Minimax Heuristics</span>
+                        <span class="pill">PGN/FEN Integration</span>
+                    </div>
+
+                    <div class="stats-panel glass-card">
+                        <h3>📈 Local Persistence Panel</h3>
+                        <p>Wins, losses, draws, and streaks are recorded automatically to a secure local database (<code>chess_stats.db</code>).</p>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-num">82%</span>
+                                <span class="stat-lbl">Win Rate</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-num">14</span>
+                                <span class="stat-lbl">Best Streak</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-num">57</span>
+                                <span class="stat-lbl">AI Beats</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <h2 class="section-title">Key Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-card glass-card">
+                    <span class="feat-icon">🤖</span>
+                    <h3>Advanced AI Systems</h3>
+                    <p>Integrate UCI Stockfish locally or play immediately with our multi-threaded alpha-beta pruning Minimax engine with 4 difficulty levels.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feat-icon">🎨</span>
+                    <h3>Four Visual Themes</h3>
+                    <p>Switch dynamically between Wood (Classic), Neon Glass (Dark Mode), Modern Flat (High Contrast), and Minimalist Classic themes.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feat-icon">⏱️</span>
+                    <h3>Professional Timer Preset</h3>
+                    <p>Support for Bullet, Blitz, Rapid, and Classical Fischer clock settings (with delay and increments per move).</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feat-icon">📝</span>
+                    <h3>PGN / FEN Import & Export</h3>
+                    <p>Easily load third-party board states via FEN strings, or export your local matches as portable PGN logs for chess engine reviews.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation & Setup -->
+        <section id="setup" class="setup-section">
+            <h2 class="section-title">Get Started Locally</h2>
+            <p class="section-desc">Ensure you have Python 3.12+ installed, then execute the following commands in your shell:</p>
+            
+            <div class="code-container glass-card">
+                <div class="code-header">
+                    <span>PowerShell / Terminal</span>
+                    <button class="copy-btn" onclick="copyCode()">Copy</button>
+                </div>
+                <pre><code id="install-code"># 1. Clone the repository
+git clone https://github.com/darshannaik019/chess_py.git
+cd chess_py
+
+# 2. Install Pygame and Python-chess dependencies
+pip install -r requirements.txt
+
+# 3. Launch the game application
+python src/main.py</code></pre>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Chess Supreme. Created with premium design principles.</p>
+        <p><a href="https://github.com/darshannaik019/chess_py.git" target="_blank">View GitHub Repository</a></p>
+    </footer>
+
+    <!-- Copy Code JS Script -->
+    <script>
+        function copyCode() {
+            const code = document.getElementById('install-code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerText = 'Copied!';
+                setTimeout(() => {
+                    btn.innerText = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
